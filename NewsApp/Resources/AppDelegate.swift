@@ -11,9 +11,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController {
+            vc.viewModel = MainViewModel(webService: MainWebServiceAdapter(webService: NewsWebService()))
+            let nav = UINavigationController(rootViewController: vc)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
         return true
     }
 
