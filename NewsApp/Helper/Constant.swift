@@ -8,7 +8,7 @@
 
 // üstteki linkin içinden iki satırı değiştirmek çok mu zor bir dev için.
 
-
+//
 
 import Foundation
 
